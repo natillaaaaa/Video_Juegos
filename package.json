@@ -1,0 +1,19 @@
+{
+  "name": "catalogo-videojuegos",
+  "version": "1.0.0",
+  "description": "Catalogo tematico de videojuegos: API REST en Cloudflare Workers + D1 y frontend en Vue.js",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:crear": "wrangler d1 create catalogo-videojuegos",
+    "db:esquema:local": "wrangler d1 execute catalogo-videojuegos --local --file=./schema.sql",
+    "db:datos:local": "wrangler d1 execute catalogo-videojuegos --local --file=./seed.sql",
+    "db:esquema": "wrangler d1 execute catalogo-videojuegos --remote --file=./schema.sql",
+    "db:datos": "wrangler d1 execute catalogo-videojuegos --remote --file=./seed.sql",
+    "portadas": "node scripts/portadas.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.20.0"
+  }
+}

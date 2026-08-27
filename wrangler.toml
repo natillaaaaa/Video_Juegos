@@ -1,0 +1,19 @@
+# =====================================================================
+#  Catálogo de Videojuegos — configuración de Cloudflare Workers
+# =====================================================================
+name = "catalogo-videojuegos"
+main = "src/index.js"
+compatibility_date = "2025-05-01"
+
+# Archivos estáticos (el frontend en Vue) servidos por el mismo Worker.
+[assets]
+directory = "./public"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+# Base de datos D1.
+# Sustituye database_id por el que devuelve:  npx wrangler d1 create catalogo-videojuegos
+[[d1_databases]]
+binding = "DB"
+database_name = "catalogo-videojuegos"
+database_id = "0b39e1a4-9b8c-4830-a0d4-4c8b3edfe26b"
